@@ -1,0 +1,30 @@
+# Rust
+**/*.rs.bk
+target
+
+# Python
+.venv/
+venv/
+.pytest_cache
+*.pyc
+
+# Editors
+.idea/
+**/.idea/
+.DS_Store
+.vscode
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# NPM utilities for building docs
+/node_modules/
+package-lock.json
+
+# Terraform
+terraform*.tfstate*backup
+terraform*.tfstate
+.terraform/
+logfiles/
