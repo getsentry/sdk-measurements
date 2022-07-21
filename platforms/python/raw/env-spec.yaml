@@ -1,0 +1,6 @@
+---
+name: raw
+
+test_file_cmd: "python ${test_file}"
+
+test_dir_cmd: "python ${test_dir}/test-entrypoint.py"

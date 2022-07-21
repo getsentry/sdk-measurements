@@ -1,0 +1,9 @@
+name: sdk-remote
+
+remote:
+  # Cloneable URL
+  repo: https://github.com/getsentry/sentry-python
+  # Revision
+  revision: test/sdk-measurements-test-factory
+  # Path inside the repository
+  path: ./perf-measurements

@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+  vegeta:
+    labels:
+      main_image: "1"
+    build:
+      context: .
+      dockerfile: ./vegeta.dockerfile
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.5'
+
+  django-rate-1p0:
+    image: django_backend_1p0:v0
+    restart: unless-stopped
+    build:
+      context: .
+      args:
+        DJANGO_DEBUG: "False"
+        SENTRY_DSN_BACKEND: "$SENTRY_DSN"
+        SENTRY_PORT_BACKEND: "8000"
+        SENTRY_TRACES_SAMPLE_RATE_BACKEND: "1.0"
+    ports:
+      - "8000:8000"
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.5'
+
+  django-rate-0p1:
+    image: django_backend_0p1:v0
+    restart: unless-stopped
+    build:
+      context: .
+      args:
+        DJANGO_DEBUG: "False"
+        SENTRY_DSN_BACKEND: "$SENTRY_DSN"
+        SENTRY_PORT_BACKEND: "8010"
+        SENTRY_TRACES_SAMPLE_RATE_BACKEND: "0.1"
+    ports:
+      - "8010:8010"
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.5'
