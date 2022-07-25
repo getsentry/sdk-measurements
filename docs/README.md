@@ -20,9 +20,9 @@ Every environment is defined in a separate directory, and belongs to a platform.
 
 Important files in the environment directory:
 
-* [`env-spec.yaml`](/docs/env-spec.md) - **required** Environment specification file that contains various environments settings, e.g. those that control test discovery. Find more about it [on a dedicated page](/docs/env-spec.md).
+* [`env-spec.yaml`](./env-spec.md) - **required** Environment specification file that contains various environments settings, e.g. those that control test discovery. Find more about it [on a dedicated page](./env-spec.md).
 * `docker-compose.yaml` -- [Compose](https://docs.docker.com/compose/compose-file/) configuration file where you define images/containers for your environment. If does not exist, a basic `docker-compose` file will be implicitly created and used for building the environment, and the system will expect a Dockerfile in the root of the environment.
-* [`query-spec.yaml`](/docs/query-spec.md) - Query/report specification file, controls what kind of InfluxDB aggregation queries will be run over the data after the test(s).
+* [`query-spec.yaml`](./query-spec.md) - Query/report specification file, controls what kind of InfluxDB aggregation queries will be run over the data after the test(s).
 
 ### Test Cases: Discovery, Format, and Execution
 
@@ -32,14 +32,14 @@ Test discovery is the process of finding test entry points in the environment. T
 
     All *files* that start with `test-` prefix in the environment root are treated as file-based tests. This type of tests is suitable e.g. for simple run-to-completion tests that don't have too many dependencies.
 
-    To know how to execute the given test, the system should figure out *the entrypoint command*. To do that, the system takes [`test_file_cmd` attribute](/docs/env-spec.md#fields) from the env spec, treats as a template, and replaces `${test_file}` variable with the base name of the discovered test. By default, `./${test_file}` value of `test_file_cmd` is used, which allows to run executable files with a valid shebang.
+    To know how to execute the given test, the system should figure out *the entrypoint command*. To do that, the system takes [`test_file_cmd` attribute](./env-spec.md#fields) from the env spec, treats as a template, and replaces `${test_file}` variable with the base name of the discovered test. By default, `./${test_file}` value of `test_file_cmd` is used, which allows to run executable files with a valid shebang.
 
 
 2. **Directory-based tests**
 
     All *directories* that start with `test-` prefix in the environment root are treated as file-based tests. This type of tests allows the user, for example, to set up a performance test for a webapp with a non-trivial file structure.
 
-    The execution entrypoint is built via [`test_dir_cmd` attribute](/docs/env-spec.md#fields), with the default value of `./${test_dir}/test-entrypoint.sh`. `${test_dir}` will be replaced with the base name of the discovered test directory.
+    The execution entrypoint is built via [`test_dir_cmd` attribute](./env-spec.md#fields), with the default value of `./${test_dir}/test-entrypoint.sh`. `${test_dir}` will be replaced with the base name of the discovered test directory.
 
 ### What services can be used by the test?
 
@@ -72,7 +72,7 @@ A run for the given environment consists of the three main stages:
 
 3. Collecting results
 
-   After every test, the system aggregates runtime metrics (e.g. CPU, memory) based on the queries specified in the [query spec](/docs/query-spec.md) file. Also, links to InfluxDB dashboards (that basically contain the raw test data) will be printed in one of the final steps.
+   After every test, the system aggregates runtime metrics (e.g. CPU, memory) based on the queries specified in the [query spec](./query-spec.md) file. Also, links to InfluxDB dashboards (that basically contain the raw test data) will be printed in one of the final steps.
 
 ## Starting a New Run
 
@@ -130,5 +130,5 @@ Assuming your environment is ready, let's start a new run.
     </p>
 
 ## Links
-* [Environment specification file](./docs/env-spec.md)
-* [Query specification file](./docs/query-spec.md)
+* [Environment specification file](./env-spec.md)
+* [Query specification file](./query-spec.md)
