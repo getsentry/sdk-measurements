@@ -130,5 +130,5 @@ Assuming your environment is ready, let's start a new run.
     </p>
 
 ## Links
-* [Environment specification file](/docs/env-spec.md)
-* [Query specification file](/docs/query-spec.md)
+* [Environment specification file](./docs/env-spec.md)
+* [Query specification file](./docs/query-spec.md)
