@@ -40,7 +40,10 @@ STATIC_ROOT = ''
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ()
 STATICFILES_FINDERS = ()
-MIDDLEWARE = ['hello.nylas_middleware.NylasMiddleware']
+MIDDLEWARE = []
+
+if os.environ.get("APP_ENABLE_PROFILING", "").lower() in {'1', 'yes', 'true'}:
+    MIDDLEWARE.append('hello.nylas_middleware.NylasMiddleware')
 
 ROOT_URLCONF = 'hello.urls'
 WSGI_APPLICATION = 'hello.wsgi.application'
