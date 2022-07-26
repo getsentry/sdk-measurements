@@ -56,7 +56,7 @@ The following environment variables can be used in `docker-compose.yaml` file:
 The following environment variables can be used in the tests:
 
 * `SENTRY_DSN` - Sentry DSN that points to a local relay-compatible ingestion endpoint. Can be used as a sink when sending events from the SDK.
-* `STATSD_HOST` - Hostname (IP address is also allowed) a local Statsd server, where you can send custom metrics from your test.
+* `STATSD_HOST` - Hostname (IP address is also allowed) of a local Statsd server, where you can send custom metrics from your test.
 * `STATSD_PORT` - Port of the Statsd server.
 
 
@@ -140,5 +140,6 @@ Assuming your environment is ready, let's start a new run.
     Eventually, the report will contain full information about the executed test(s), trend information a la "this is how the test behaved for the last N commits in master", and also instruments for comparing different test runs.
 
 ## Links
-* [Environment specification file](./env-spec.md)
-* [Query specification file](./query-spec.md)
+* [Environment specification file: about](./env-spec.md)
+* [Query specification file: about](./query-spec.md)
+* [Example: `django-profiling` environment](../platforms/python/django-profiling/)
