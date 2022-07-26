@@ -21,7 +21,7 @@ set -x
 
 # Wait until the endpoint is live
 MAX_WAIT_SECONDS="60"
-while [[ "$(curl --max-time 5 -s -o /dev/null -w ''%{http_code}'' ${TARGET_BASE})" != "200" ]]; do
+while [[ "$(curl --max-time 5 -s -o /dev/null -w ''%{http_code}'' ${TARGET_BASE})" != "404" ]]; do
     retries=$((${retries:-0}+1))
     if (( retries > MAX_WAIT_SECONDS )); then
         echo 'Too many retries, exiting.'
