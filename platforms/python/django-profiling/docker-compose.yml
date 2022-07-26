@@ -17,7 +17,7 @@ services:
     build:
       context: .
       args:
-        SENTRY_DSN_BACKEND: "$SENTRY_DSN"
+        SENTRY_DSN: "$SENTRY_DSN"
         SENTRY_PORT_BACKEND: "8080"
         APP_ENABLE_PROFILING: "1"
     ports:
@@ -32,7 +32,7 @@ services:
     build:
       context: .
       args:
-        SENTRY_DSN_BACKEND: "$SENTRY_DSN"
+        SENTRY_DSN: "$SENTRY_DSN"
         SENTRY_PORT_BACKEND: "8090"
         APP_ENABLE_PROFILING: "0"
     ports:
