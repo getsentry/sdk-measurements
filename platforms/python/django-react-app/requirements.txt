@@ -1,6 +1,6 @@
 # Note: Sentry SDK will be installed separately
 
-Django==4.0.5
+Django==4.0.6
 django-cors-headers==3.13.0
 djangorestframework==3.13.1
 gunicorn==20.1.0
