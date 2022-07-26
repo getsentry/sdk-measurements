@@ -18,4 +18,4 @@ COPY . ./
 
 EXPOSE ${SENTRY_PORT_BACKEND}
 
-CMD ["gunicorn", "--pid=gunicorn.pid", "hello.wsgi:application", "-c", "gunicorn_conf.py", "--env", "DJANGO_DB=postgresql"]
+CMD ["gunicorn", "--pid=gunicorn.pid", "hello.wsgi:application", "-c", "gunicorn_conf.py", "--env", "DJANGO_DB=postgresql", "--log-level", "debug"]
