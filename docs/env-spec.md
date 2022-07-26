@@ -25,15 +25,17 @@ The file should be located at the root directory of the given environment, and i
 # Environment name
 name: django-react-app
 
+# Every discovered file will be treated as a Python script
 test_file_cmd: "python ${test_file}"
 
+# We will expect a "test-entrypoint.py" script in every discovered test directory
 test_dir_cmd: "python ${test_dir}/test-entrypoint.py"
 
 # We'll be generating dashboard links in the given tests for the given containers
 watch_containers:
   # Test name
   "test-run-vegeta-rate-1.0.sh":
-    # Container name
+    # Container name that will be "watched" for the given test
     - django-rate-1p0
   "test-run-vegeta-rate-0.1.sh":
     - django-rate-0p1
