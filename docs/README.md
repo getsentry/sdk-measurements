@@ -133,7 +133,9 @@ Assuming your environment is ready, let's start a new run.
 
     Here's how a staticly generated report might look like:
 
-
+    <p align="center">
+    <img src="https://user-images.githubusercontent.com/1120468/181048609-fed24bc9-7ae3-4043-8aff-43332a399311.png" width="80%">
+    </p>
 
     Eventually, the report will contain full information about the executed test(s), trend information a la "this is how the test behaved for the last N commits in master", and also instruments for comparing different test runs.
 
