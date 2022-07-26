@@ -1,0 +1,1 @@
+GET ${TARGET_BASE}/update?queries=10
