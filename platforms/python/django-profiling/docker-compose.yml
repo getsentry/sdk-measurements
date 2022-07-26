@@ -13,7 +13,6 @@ services:
           cpus: '0.5'
 
   django-enable-profiling:
-    image: django_enable_profiling
     restart: unless-stopped
     build:
       context: .
@@ -29,7 +28,6 @@ services:
           cpus: '0.5'
 
   django-disable-profiling:
-    image: django_disable_profiling
     restart: unless-stopped
     build:
       context: .
@@ -48,3 +46,5 @@ services:
     build:
       context: postgres
       dockerfile: postgres.dockerfile
+    ports:
+      - "5432:5432"

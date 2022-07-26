@@ -1,0 +1,11 @@
+---
+name: django-profiling
+
+# We'll be generating dashboard links in the given tests for the given containers
+watch_containers:
+  # Test name
+  "test-run-vegeta-enable-profiling.sh":
+    # Container name
+    - django-enable-profiling
+  "test-run-vegeta-disable-profiling.sh":
+    - django-disable-profiling
