@@ -43,7 +43,10 @@ STATICFILES_FINDERS = ()
 MIDDLEWARE = []
 
 if os.environ.get("APP_ENABLE_PROFILING", "").lower() in {'1', 'yes', 'true'}:
+    print('Profiling middleware: ENABLED')
     MIDDLEWARE.append('hello.nylas_middleware.NylasMiddleware')
+else:
+    print('Profiling middleware: DISABLED')
 
 ROOT_URLCONF = 'hello.urls'
 WSGI_APPLICATION = 'hello.wsgi.application'
