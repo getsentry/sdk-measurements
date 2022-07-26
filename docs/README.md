@@ -22,8 +22,8 @@ Every environment is defined in a separate directory, and belongs to a platform.
 
 Important files in the environment directory:
 
-* [`env-spec.yaml`](./env-spec.md) - **required** Environment specification file that contains various environments settings, e.g. those that control test discovery. Find more about it [on a dedicated page](./env-spec.md).
-* `docker-compose.yaml` -- [Compose](https://docs.docker.com/compose/compose-file/) configuration file where you define images/containers for your environment. If does not exist, a basic `docker-compose` file will be implicitly created and used for building the environment, and the system will expect a Dockerfile in the root of the environment. By default, the first service (container) listed in the Compose file will be used as the "main" container that will be controlling the test flow, i.e., the test will be considered as finished when the main container finishes.
+* [`env-spec.yaml`](./env-spec.md) **(required)** - Environment specification file that contains various environments settings, e.g. those that control test discovery. Find more about it [on a dedicated page](./env-spec.md).
+* `docker-compose.yaml` - [Compose](https://docs.docker.com/compose/compose-file/) configuration file where you define images/containers for your environment. If does not exist, a basic `docker-compose` file will be implicitly created and used for building the environment, and the system will expect a Dockerfile in the root of the environment. By default, the first service (container) listed in the Compose file will be used as the "main" container that will be controlling the test flow, i.e., the test will be considered as finished when the main container finishes.
 * [`query-spec.yaml`](./query-spec.md) - Query/report specification file, controls what kind of InfluxDB aggregation queries will be run over the data after the test(s).
 
 ### Test Cases: Discovery, Format, and Execution
@@ -56,7 +56,7 @@ The following environment variables can be used in `docker-compose.yaml` file:
 The following environment variables can be used in the tests:
 
 * `SENTRY_DSN` - Sentry DSN that points to a local relay-compatible ingestion endpoint. Can be used as a sink when sending events from the SDK.
-* `STATSD_HOST` - Hostname (IP address is also allowed) a local Statsd server, where you can send custom metrics from your test.
+* `STATSD_HOST` - Hostname (IP address is also allowed) of a local Statsd server, where you can send custom metrics from your test.
 * `STATSD_PORT` - Port of the Statsd server.
 
 
@@ -125,12 +125,21 @@ Assuming your environment is ready, let's start a new run.
     </p>
 
 
-1. You can also get a static report with aggregated stats. At the moment we generate an HTML report and upload it to Google Cloud Storage. To find the link of the report, check the output of the "generate-html-report" step:
+1. (WIP) You can also get a static report with aggregated stats. At the moment we generate an HTML report and upload it to Google Cloud Storage. To find the link of the report, check the output of the "generate-html-report" step:
 
     <p align="center">
     <img src="https://user-images.githubusercontent.com/1120468/180487570-c2dc2d6c-f30d-49db-bb97-933ef0b68058.png" width="80%">
     </p>
 
+    Here's how a staticly generated report might look like:
+
+    <p align="center">
+    <img src="https://user-images.githubusercontent.com/1120468/181048609-fed24bc9-7ae3-4043-8aff-43332a399311.png" width="80%">
+    </p>
+
+    Eventually, the report will contain full information about the executed test(s), trend information a la "this is how the test behaved for the last N commits in master", and also instruments for comparing different test runs.
+
 ## Links
-* [Environment specification file](./env-spec.md)
-* [Query specification file](./query-spec.md)
+* [Environment specification file: about](./env-spec.md)
+* [Query specification file: about](./query-spec.md)
+* [Example: `django-profiling` environment](../platforms/python/django-profiling/)
