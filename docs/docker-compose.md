@@ -21,7 +21,7 @@ services:
 
 ### `sdk-measurements.sentry.io/only-for-tests`
 
-#### Note: this label is not implemented yet!
+#### ⚠️ Note: this label is not implemented yet! ⚠️
 
 This label can be used to signal the system that the corresponding service should be started only for a specific set of tests in the environment. For example, if a certain service is used only for one test out of ten in the environment, it would be reasonable to indicate that using this label to save some resources.
 
