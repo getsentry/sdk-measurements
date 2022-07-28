@@ -1,7 +1,20 @@
 # `docker-compose`: Overview and Best Practices
 
+Generally, [`docker-compose`](https://docs.docker.com/compose/) is a tool for defining and running multi-container applications. We use `docker-compose` format to define our testing environments because its development-centric approach allows us to test/run apps both locally and in the cloud.
+
+Links:
+* [More about `docker-compose`](https://docs.docker.com/compose/)
+* [Compose file reference](https://docs.docker.com/compose/compose-file/)
+
+## How We Run Compose-based Loads
+
+We currently use Kubernetes to run our workloads. To convert `docker-compose` services to Kubernetes resources, we use a tool called [`kompose`](https://kompose.io/) when preparing a test run.
+
+Because of the conversion, not all Compose features are currently supported, see the conversion/compatibility matrix for more details:  https://kompose.io/conversion/
 
 ## Special Labels
+
+Our testing infrastructure supports a set of custom (non-standard) labels that can be put on the service definitions in Compose files.
 
 ### `sdk-measurements.sentry.io/main`
 
@@ -38,3 +51,22 @@ services:
 ```
 
 ## Computing Resources
+
+
+More info https://docs.docker.com/compose/compose-file/deploy/#resources
+
+
+```yaml
+services:
+  vegeta:
+    deploy:
+      resources:
+        # These are guaranteed (reserved) resources
+        reservations:
+          cpus: '0.5'
+          memory: '50M'
+        # These are the limits: the container won't be able to use more than that
+        limits:
+          cpus: '1'
+          memory: '100M'
+```

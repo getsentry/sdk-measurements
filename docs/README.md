@@ -14,7 +14,7 @@ This documentation is also available on [GitHub Pages](https://getsentry.github.
 
 ## Preparing Environment
 
-A testing environment is basically a set of container images that run together, plus a set of tests that run in one of the containers. For example, the simplest Python environment may consist of a Python-based image and a set of Python test scripts, where each script runs to completion. More specifically, each environment is a [`docker-compose`](https://docs.docker.com/compose/)-based project with some additional rules on how to discover tests and aggregate the results.
+A testing environment is basically a set of container images that run together, plus a set of tests that run in one of the containers. For example, the simplest Python environment may consist of a Python-based image and a set of Python test scripts, where each script runs to completion. More specifically, each environment is a [`docker-compose`](./docker-compose.md)-based project with some additional rules on how to discover tests and aggregate the results.
 
 ### Environment: Structure and Contents
 
@@ -142,4 +142,5 @@ Assuming your environment is ready, let's start a new run.
 ## Links
 * [Environment specification file: about](./env-spec.md)
 * [Query specification file: about](./query-spec.md)
+* [More about `docker-compose` definitions](./docker-compose.md)
 * [Example: `django-profiling` environment](../platforms/python/django-profiling/)
