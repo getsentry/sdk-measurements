@@ -10,7 +10,7 @@ sentry_sdk.init(
     traces_sample_rate=1.0,
     send_default_pii=True,
     _experiments={"enable_profiling": ENABLE_PROFILING},
-    # debug=True,
+    debug=True,
 )
 
 DEBUG = True
