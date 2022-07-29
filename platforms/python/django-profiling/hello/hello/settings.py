@@ -2,10 +2,14 @@ import os
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
+ENABLE_PROFILING = os.environ.get("APP_ENABLE_PROFILING", "").lower() in {'1', 'yes', 'true'}
+print('Profiling in Sentry SDK: {}'.format("ENABLED" if ENABLE_PROFILING else "DISABLED"))
+
 sentry_sdk.init(
     integrations=[DjangoIntegration()],
     traces_sample_rate=1.0,
     send_default_pii=True,
+    _experiments={"enable_profiling": ENABLE_PROFILING},
     # debug=True,
 )
 
@@ -41,12 +45,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = ()
 STATICFILES_FINDERS = ()
 MIDDLEWARE = []
-
-if os.environ.get("APP_ENABLE_PROFILING", "").lower() in {'1', 'yes', 'true'}:
-    print('Profiling middleware: ENABLED')
-    MIDDLEWARE.append('hello.nylas_middleware.NylasMiddleware')
-else:
-    print('Profiling middleware: DISABLED')
 
 ROOT_URLCONF = 'hello.urls'
 WSGI_APPLICATION = 'hello.wsgi.application'
