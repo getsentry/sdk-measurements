@@ -3,7 +3,7 @@ version: "3.7"
 services:
   vegeta:
     labels:
-      main_image: "1"
+      sdk-measurements.sentry.io/main: "1"
     build:
       context: .
       dockerfile: ./vegeta.dockerfile
