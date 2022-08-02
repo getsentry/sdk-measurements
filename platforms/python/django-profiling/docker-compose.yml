@@ -1,6 +1,7 @@
 version: "3.7"
 
 services:
+  # Based on https://github.com/tsenart/vegeta
   vegeta:
     labels:
       sdk-measurements.sentry.io/main: "1"

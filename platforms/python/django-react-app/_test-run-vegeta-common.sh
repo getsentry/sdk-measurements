@@ -32,7 +32,7 @@ while [[ "$(curl --max-time 5 -s -o /dev/null -w ''%{http_code}'' ${TARGET_BASE}
 done
 
 # Run the attack
-vegeta attack -targets "${INPUT_REQUESTS_FILE}" -rate=80 -duration=120s | vegeta encode > "${RESULTS_FILE}"
+vegeta attack -targets "${INPUT_REQUESTS_FILE}" -rate=40 -duration=120s | vegeta encode > "${RESULTS_FILE}"
 
 # Export the data to InfluxDB
 vegeta2influx --input="${RESULTS_FILE}" --measurement=vegeta_request --tags pod_name="${POD_NAME}"
