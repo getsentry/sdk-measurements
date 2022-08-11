@@ -81,7 +81,7 @@ A run for the given environment consists of the three main stages:
 Assuming your environment is ready, let's start a new run.
 
 
-1. Make sure that the files of the environment(s) you want to test are pushed to this repository. It doesn't have to be the `main` branch, though: if you're iterating on seomthing, feel free to push your changes to a new branch, just don't forget to specify it in the workflow parameters in the next step.
+1. Make sure that the files of the environment(s) you want to test are pushed to this repository. It doesn't have to be the `main` branch, though: if you're iterating on something, feel free to push your changes to a new branch, just don't forget to specify it in the workflow parameters in the next step.
 
 2. Go to https://run.testa.getsentry.net/ (it is our self-hosted instance of Argo Workflows), click on `+ Submit New Workflow` button, and pick the workflow called `sdk-measurements`.
    About the parameters you can configure:
