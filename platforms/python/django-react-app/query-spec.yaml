@@ -38,3 +38,35 @@ metrics:
             |> {filters}
             |> toFloat()
             |> {quantile}
+_meta:
+  metrics:
+    cpu_usage:
+      name: CPU Usage
+      description: CPU usage in cores
+      unit: cores
+      aggregations:
+        "mean":
+            name: mean
+        "0.5":
+            name: 0.5 quantile
+        "0.9":
+            name: 0.9 quantile
+        "1.0":
+            name: max
+    ram_usage:
+      name: RAM Usage
+      description: RAM usage in bytes
+      unit: bytes
+      aggregations:
+        mean:
+            name: Mean
+            description: Mean memory usage in bytes
+        "0.5":
+            name: 0.5 quantile
+            description: Mean memory usage in bytes for 0.5 quantile
+        "0.9":
+            name: 0.9 quantile
+            description: memory usage in bytes for 0.9 quantile
+        max:
+            name: Max
+            description: Max memory usage in bytes
