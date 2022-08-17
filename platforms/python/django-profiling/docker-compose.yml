@@ -14,6 +14,8 @@ services:
           cpus: '0.5'
 
   django-enable-profiling:
+    labels:
+      "sdk-measurements.sentry.io/only-for-tests": "test-run-vegeta-enable-profiling.sh"
     restart: unless-stopped
     build:
       context: .
@@ -29,6 +31,8 @@ services:
           cpus: '0.5'
 
   django-disable-profiling:
+    labels:
+      "sdk-measurements.sentry.io/only-for-tests": "test-run-vegeta-disable-profiling.sh"
     restart: unless-stopped
     build:
       context: .
