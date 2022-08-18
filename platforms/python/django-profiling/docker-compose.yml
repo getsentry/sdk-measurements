@@ -15,7 +15,7 @@ services:
 
   django-enable-profiling:
     labels:
-      "sdk-measurements.sentry.io/only-for-tests": "test-run-vegeta-enable-profiling.sh"
+      sdk-measurements.sentry.io/only-for-tests: "test-run-vegeta-enable-profiling.sh"
     restart: unless-stopped
     build:
       context: .
@@ -32,7 +32,7 @@ services:
 
   django-disable-profiling:
     labels:
-      "sdk-measurements.sentry.io/only-for-tests": "test-run-vegeta-disable-profiling.sh"
+      sdk-measurements.sentry.io/only-for-tests: "test-run-vegeta-disable-profiling.sh"
     restart: unless-stopped
     build:
       context: .
