@@ -13,6 +13,8 @@ services:
           cpus: '0.5'
 
   django-rate-1p0:
+    labels:
+      sdk-measurements.sentry.io/only-for-tests: "test-run-vegeta-rate-1.0.sh"
     image: django_backend_1p0:v0
     restart: unless-stopped
     build:
@@ -30,6 +32,8 @@ services:
           cpus: '0.5'
 
   django-rate-0p1:
+    labels:
+      sdk-measurements.sentry.io/only-for-tests: "test-run-vegeta-rate-0.1.sh"
     image: django_backend_0p1:v0
     restart: unless-stopped
     build:
