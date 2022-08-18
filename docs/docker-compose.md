@@ -34,8 +34,6 @@ services:
 
 ### `sdk-measurements.sentry.io/only-for-tests`
 
-#### ⚠️ Note: this label is not implemented yet! ⚠️
-
 This label can be used to signal the system that the corresponding service should be started only for a specific set of tests in the environment. For example, if a certain service is used only for one test out of ten in the environment, it would be reasonable to indicate that using this label to save some resources.
 
 A valid value is a comma-separated list of test names.
@@ -52,9 +50,11 @@ services:
 
 ## Computing Resources
 
+You can specify how much resources (CPU and memory) you want to allocate for your service ("reservations"), and what would be the limit ("limits") for the resource in question.
 
-More info https://docs.docker.com/compose/compose-file/deploy/#resources
+More information about computing resources can be found here: https://docs.docker.com/compose/compose-file/deploy/#resources
 
+**Example:**
 
 ```yaml
 services:
