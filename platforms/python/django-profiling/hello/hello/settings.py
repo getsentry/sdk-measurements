@@ -12,7 +12,7 @@ if os.environ.get("APP_ENABLE_PROFILING", "").lower() in {'1', 'yes', 'true'}:
     }
 else:
     print('Profiling middleware: DISABLED')
-    experiements = {}
+    experiments = {}
 
 sentry_sdk.init(
     integrations=[DjangoIntegration()],
