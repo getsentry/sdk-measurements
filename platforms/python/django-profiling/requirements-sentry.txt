@@ -1,1 +1,1 @@
-sentry-sdk @ https://github.com/getsentry/sentry-python/archive/e3d245a293802ae0c721ea95889b905114004436.zip
+sentry-sdk==1.9.9
