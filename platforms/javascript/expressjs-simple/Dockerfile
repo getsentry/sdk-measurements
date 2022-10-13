@@ -19,4 +19,5 @@ RUN yarn install
 
 EXPOSE ${SENTRY_PORT_BACKEND}
 
-CMD ["node", "index.js"]
+# CMD ["node", "index.js"]
+CMD ["sleep", "3600"]
