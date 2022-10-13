@@ -1,0 +1,14 @@
+{
+  "name": "expressjs-simple",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Vladan Paunovic",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

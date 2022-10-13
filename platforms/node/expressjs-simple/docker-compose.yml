@@ -1,0 +1,69 @@
+version: "3.7"
+
+services:
+  node-app:
+    environment:
+      - NODE_ENV=development
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node-app
+    expose: 
+      - 3000
+    ports:
+      - 3000:8080
+    command: yarn dev
+
+
+  # # Based on https://github.com/tsenart/vegeta
+  # vegeta:
+  #   labels:
+  #     sdk-measurements.sentry.io/main: "1"
+  #   build:
+  #     context: .
+  #     dockerfile: ./vegeta.dockerfile
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         cpus: '0.5'
+
+  # django-enable-profiling:
+  #   labels:
+  #     sdk-measurements.sentry.io/only-for-tests: "test-run-vegeta-enable-profiling.sh"
+  #   restart: unless-stopped
+  #   build:
+  #     context: .
+  #     args:
+  #       SENTRY_DSN: "$SENTRY_DSN"
+  #       SENTRY_PORT_BACKEND: "8080"
+  #       APP_ENABLE_PROFILING: "1"
+  #   ports:
+  #     - "8080:8080"
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         cpus: '0.5'
+
+  # django-disable-profiling:
+  #   labels:
+  #     sdk-measurements.sentry.io/only-for-tests: "test-run-vegeta-disable-profiling.sh"
+  #   restart: unless-stopped
+  #   build:
+  #     context: .
+  #     args:
+  #       SENTRY_DSN: "$SENTRY_DSN"
+  #       SENTRY_PORT_BACKEND: "8090"
+  #       APP_ENABLE_PROFILING: "0"
+  #   ports:
+  #     - "8090:8090"
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         cpus: '0.5'
+
+  # postgres:
+  #   build:
+  #     context: postgres
+  #     dockerfile: postgres.dockerfile
+  #   ports:
+  #     - "5432:5432"
