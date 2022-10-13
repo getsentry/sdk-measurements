@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  # # Based on https://github.com/tsenart/vegeta
+  # Based on https://github.com/tsenart/vegeta
   vegeta:
     labels:
       sdk-measurements.sentry.io/main: "1"
@@ -14,8 +14,6 @@ services:
           cpus: "0.5"
 
   node-app-baseline:
-    # environment:
-    #   - NODE_ENV=development
     labels:
       sdk-measurements.sentry.io/only-for-tests: "test-run-node-app-baseline.sh"
     build:
@@ -28,20 +26,18 @@ services:
     ports:
       - 3000:3000
 
-  node-app-test:
-    # environment:
-    #   - NODE_ENV=development
-    labels:
-      sdk-measurements.sentry.io/only-for-tests: "test-run-node-app-test.sh"
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        # SENTRY_DSN: "$SENTRY_DSN"
-        # SENTRY_PORT_BACKEND: "8080"
-        APP_ENABLE_PROFILING: "1"
-    ports:
-      - 3000:3000
+  # node-app-test:
+  #   labels:
+  #     sdk-measurements.sentry.io/only-for-tests: "test-run-node-app-test.sh"
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     args:
+  #       # SENTRY_DSN: "$SENTRY_DSN"
+  #       # SENTRY_PORT_BACKEND: "8080"
+  #       APP_ENABLE_PROFILING: "1"
+  #   ports:
+  #     - 3000:3000
 
   # postgres:
   #   build:

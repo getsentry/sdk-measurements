@@ -19,6 +19,6 @@ RUN yarn install
 
 EXPOSE ${SENTRY_PORT_BACKEND}
 
-# CMD ["npm", "start"]
+CMD ["npm", "start"]
 # ENTRYPOINT ["sh", "-c", "echo 'Heeyyyy, sleeping'; while true; do echo yo; sleep 1; done"]
-ENTRYPOINT ["sleep", "10"]
+# ENTRYPOINT ["sleep", "10"]
