@@ -19,5 +19,5 @@ RUN yarn install
 
 EXPOSE ${SENTRY_PORT_BACKEND}
 
-ENTRYPOINT ["node", "index.js"]
-# ENTRYPOINT ["sh", "-c", "echo 'Heeyyyy, sleeping'; while true; do echo yo; sleep 1; done"]
+# ENTRYPOINT ["node", "index.js"]
+ENTRYPOINT ["sh", "-c", "echo 'Heeyyyy, sleeping'; while true; do echo yo; sleep 1; done"]
