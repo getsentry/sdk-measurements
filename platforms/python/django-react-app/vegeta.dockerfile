@@ -1,4 +1,4 @@
-FROM europe-west3-docker.pkg.dev/sentry-st-testing/main/sentry-vegeta:cd30862833bc1d7aa3403b694393935f5a3aa4b9
+FROM europe-west3-docker.pkg.dev/sentry-st-testing/public/sentry-vegeta:cd30862833bc1d7aa3403b694393935f5a3aa4b9
 
 WORKDIR /work
 
