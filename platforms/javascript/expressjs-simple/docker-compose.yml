@@ -35,7 +35,7 @@ services:
     environment:
       - NODE_ENV=development
     labels:
-      - sdk-measurements.sentry.io/only-for-tests: "test-run-node-app-test.sh"
+      sdk-measurements.sentry.io/only-for-tests: "test-run-node-app-test.sh"
     build:
       context: .
       dockerfile: Dockerfile
