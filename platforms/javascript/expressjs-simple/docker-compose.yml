@@ -24,7 +24,7 @@ services:
       args:
         # SENTRY_DSN: "$SENTRY_DSN"
         # SENTRY_PORT_BACKEND: "8081"
-        # APP_ENABLE_PROFILING: "1"
+        APP_ENABLE_PROFILING: "1"
     expose: 
       - 3000
     ports:
@@ -42,7 +42,7 @@ services:
       args:
         # SENTRY_DSN: "$SENTRY_DSN"
         # SENTRY_PORT_BACKEND: "8080"
-        # APP_ENABLE_PROFILING: "1"
+        APP_ENABLE_PROFILING: "1"
     expose: 
       - 3000
     ports:
