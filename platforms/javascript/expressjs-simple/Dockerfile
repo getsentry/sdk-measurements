@@ -21,4 +21,4 @@ EXPOSE ${SENTRY_PORT_BACKEND}
 
 # CMD ["npm", "start"]
 # ENTRYPOINT ["sh", "-c", "echo 'Heeyyyy, sleeping'; while true; do echo yo; sleep 1; done"]
-ENTRYPOINT ["true"]
+ENTRYPOINT ["sleep", "10"]
