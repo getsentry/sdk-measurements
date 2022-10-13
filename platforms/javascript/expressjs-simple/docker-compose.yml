@@ -27,7 +27,6 @@ services:
         APP_ENABLE_PROFILING: "1"
     ports:
       - 3000:3000
-    command: yarn dev
 
   node-app-test:
     # environment:
@@ -43,7 +42,6 @@ services:
         APP_ENABLE_PROFILING: "1"
     ports:
       - 3000:3000
-    command: yarn dev
 
   # postgres:
   #   build:
