@@ -1,1 +1,3 @@
-vegeta attack -targets ./vegeta-requests.txt -rate=80 -duration=10s | vegeta encode
+#!/usr/bin/env bash
+
+. _test-run-common.sh
