@@ -1,0 +1,72 @@
+# Spec for stats-collector
+metrics:
+  cpu_usage:
+    args:
+      quantiles:
+        - mean
+        - 0.5
+        - 0.9
+        - 1.0
+      filters:
+        _measurement: "kubernetes_pod_container"
+        _field: "cpu_usage_nanocores"
+    flux_query: |
+       from(bucket: "{bucket}")
+            |> range(start: {start}, stop: {stop})
+            |> {filters}
+            |> toFloat()
+            |> map(fn: (r) => ({{
+                r with
+                _value: r._value / 1000000000.0
+                }})
+            )
+            |> {quantile}
+
+  ram_usage:
+    args:
+      quantiles:
+        - mean
+        - 0.5
+        - 0.9
+        - 1.0
+      filters:
+        _measurement: "kubernetes_pod_container"
+        _field: "memory_rss_bytes"
+    flux_query: |
+       from(bucket: "{bucket}")
+            |> range(start: {start}, stop: {stop})
+            |> {filters}
+            |> toFloat()
+            |> {quantile}
+_meta:
+  metrics:
+    cpu_usage:
+      name: CPU Usage
+      description: CPU usage in cores
+      unit: cores
+      aggregations:
+        mean:
+            name: mean
+        q0.5:
+            name: 0.5 quantile
+        q0.9:
+            name: 0.9 quantile
+        q1.0:
+            name: max
+    ram_usage:
+      name: RAM Usage
+      description: RAM usage in bytes
+      unit: bytes
+      aggregations:
+        mean:
+            name: mean
+            description: Mean memory usage in bytes
+        q0.5:
+            name: 0.5 quantile
+            description: Mean memory usage in bytes for 0.5 quantile
+        q0.9:
+            name: 0.9 quantile
+            description: memory usage in bytes for 0.9 quantile
+        q1.0:
+            name: max
+            description: Max memory usage in bytes
