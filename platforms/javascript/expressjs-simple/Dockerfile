@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 
-ENV NDOE_ENV production
+ENV NODE_ENV production
 
 ARG SENTRY_SDK_VERSION=master
 ENV SENTRY_SDK_VERSION=$SENTRY_SDK_VERSION
@@ -19,4 +19,4 @@ RUN yarn install
 
 EXPOSE ${SENTRY_PORT_BACKEND}
 
-CMD ["node", "index.js"]
+ENTRYPOINT ["node", "index.js"]
