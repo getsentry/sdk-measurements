@@ -20,9 +20,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        # SENTRY_DSN: "$SENTRY_DSN"
-        # SENTRY_PORT_BACKEND: "8081"
-        APP_ENABLE_PROFILING: "1"
+        APP_ENABLE_INSTRUMENTATION: "0"
     ports:
       - 3000:3000
 
@@ -33,9 +31,8 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        # SENTRY_DSN: "$SENTRY_DSN"
-        # SENTRY_PORT_BACKEND: "8080"
-        APP_ENABLE_PROFILING: "1"
+        SENTRY_DSN: "https://731dd13475b14beb887f6b01ee70c7d1@o447951.ingest.sentry.io/4504094265114624"
+        APP_ENABLE_INSTRUMENTATION: "1"
     ports:
       - 3000:3000
 
