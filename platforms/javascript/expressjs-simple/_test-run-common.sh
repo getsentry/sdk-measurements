@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-export TEST_DURATION="10s"
+export TEST_DURATION="60s"
 export TEST_RPS="80"
 
 export VE2IN_TOKEN="${INFLUX_TOKEN}"

@@ -1,11 +1,18 @@
 const express = require("express");
 const app = express();
 const Sentry = require("@sentry/node");
+const dataLogger = require("./custom-data-logger");
 
 const port = process.env.SENTRY_PORT_BACKEND || 8081;
 
 const APP_NAME = "node-app-test";
 console.log(`Starting app ${APP_NAME}`);
+
+dataLogger.writeCustomData([
+  {  name:"baseTest", value:"false"},
+  {  name:"displayName", value:"With Sentry"}
+])
+
 
 Sentry.init({ dsn: process.env.SENTRY_DSN });
 
