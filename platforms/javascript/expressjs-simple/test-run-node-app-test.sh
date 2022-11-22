@@ -2,4 +2,6 @@
 
 export TARGET_BASE="http://127.0.0.1:3000"
 
+echo '{"labels":[{"name":"baseTest", "value":"false"},{"name":"displayName", "value":"With Sentry"}]}' > /tmp/test_data.json
+
 . _test-run-common.sh
