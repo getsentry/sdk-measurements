@@ -8,5 +8,6 @@ In this repository we keep testing environments and test cases for **Sentry SDK 
 
 ## Related Links
 
+* GitHub actions for Mobile SDK overhead measurements: https://github.com/getsentry/action-app-sdk-overhead-metrics
 * Previous iteration of similar idea: https://github.com/getsentry/sentry-sdk-benchmark
 * Overview of Sentry SDKs: https://develop.sentry.dev/sdk/overview/
