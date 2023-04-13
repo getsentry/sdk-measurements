@@ -31,7 +31,7 @@ services:
         reservations:
           cpus: '0.5'
 
-  django-rate-0p1:
+  django-rate-0p0:
     labels:
       sdk-measurements.sentry.io/only-for-tests: "test-run-vegeta-rate-0.1.sh"
     image: django_backend_0p1:v0
@@ -42,7 +42,7 @@ services:
         DJANGO_DEBUG: "False"
         SENTRY_DSN_BACKEND: "$SENTRY_DSN"
         SENTRY_PORT_BACKEND: "8010"
-        SENTRY_TRACES_SAMPLE_RATE_BACKEND: "0.1"
+        SENTRY_TRACES_SAMPLE_RATE_BACKEND: "0.0"
     ports:
       - "8010:8010"
     deploy:

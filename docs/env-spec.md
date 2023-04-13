@@ -39,8 +39,8 @@ watch_containers:
   "test-run-vegeta-rate-1.0.sh":
     # Container name that will be "watched" for the given test
     - django-rate-1p0
-  "test-run-vegeta-rate-0.1.sh":
-    - django-rate-0p1
+  "test-run-vegeta-rate-0.0.sh":
+    - django-rate-0p0
 
 # This environment has a custom dashboard
 grafana:
