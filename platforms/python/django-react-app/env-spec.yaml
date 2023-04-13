@@ -12,3 +12,5 @@ watch_containers:
     - django-rate-1p0
   "test-run-vegeta-rate-0.0.sh":
     - django-rate-0p0
+  "test-run-vegeta-rate-none.sh":
+    - django-rate-none

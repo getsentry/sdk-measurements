@@ -156,15 +156,19 @@ logging.warn(
     f'~~~~ SENTRY_TRACES_SAMPLE_RATE_BACKEND: {os.getenv("SENTRY_TRACES_SAMPLE_RATE_BACKEND", "1.0")}'
 )
 
-sentry_sdk.init(
-    dsn=os.getenv("SENTRY_DSN_BACKEND", None),
-    release=os.getenv("SENTRY_RELEASE_BACKEND", "0.0.0"),
-    environment=os.getenv("SENTRY_ENVIRONMENT_BACKEND", "local"),
-    debug=os.getenv("SENTRY_DEBUG_BACKEND", False),
-    send_default_pii=os.getenv("SENTRY_SENTRY_DEFAULT_PII_BACKEND", True),
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
-    traces_sample_rate=float(os.getenv("SENTRY_TRACES_SAMPLE_RATE_BACKEND", "1.0")),
-    attach_stacktrace=True,
-)
+dsn = os.getenv("SENTRY_DSN_BACKEND", None)
+if dsn:
+    sentry_sdk.init(
+        dsn=dsn,
+        release=os.getenv("SENTRY_RELEASE_BACKEND", "0.0.0"),
+        environment=os.getenv("SENTRY_ENVIRONMENT_BACKEND", "local"),
+        debug=os.getenv("SENTRY_DEBUG_BACKEND", False),
+        send_default_pii=os.getenv("SENTRY_SENTRY_DEFAULT_PII_BACKEND", True),
+        # Set traces_sample_rate to 1.0 to capture 100%
+        # of transactions for performance monitoring.
+        # We recommend adjusting this value in production.
+        traces_sample_rate=float(os.getenv("SENTRY_TRACES_SAMPLE_RATE_BACKEND", "1.0")),
+        attach_stacktrace=True,
+    )
+else:
+    logging.warn("~~~~ SENTRY_DSN_BACKEND not set")

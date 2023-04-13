@@ -49,3 +49,21 @@ services:
       resources:
         reservations:
           cpus: '0.5'
+
+  django-rate-none:
+    labels:
+      sdk-measurements.sentry.io/only-for-tests: "test-run-vegeta-rate-none.sh"
+    image: django_backend_none:v0
+    restart: unless-stopped
+    build:
+      context: .
+      args:
+        DJANGO_DEBUG: "False"
+        SENTRY_DSN_BACKEND: ""
+        SENTRY_PORT_BACKEND: "8020"
+    ports:
+      - "8020:8020"
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.5'
